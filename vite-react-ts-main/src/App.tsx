@@ -1,58 +1,43 @@
-import { useCountStore } from './stores/countStore';
+import React from 'react';
+import { Cookie, Facilities } from './features';
 
-const Count = () => {
-	const count = useCountStore((state) => state.count);
+export function App() {
+	const cookieStyle: React.CSSProperties = {
+		width: '20%',
+		height: '100%',
+		position: 'relative'
+	};
+	const facilityStyle: React.CSSProperties = {
+		width: '50%',
+		height: '100%',
+		position: 'relative'
+	};
+	const shopStyle: React.CSSProperties = {
+		width: '30%',
+		height: '100%',
+		position: 'relative'
+	};
+	const layout: React.CSSProperties = {
+		display: 'flex',
+		width: 1900,
+		height: 900
+	};
+
 	return (
 		<>
-			<h2>count: {count}</h2>
+			<div style={layout}>
+				<div style={cookieStyle}>
+					<Cookie />
+				</div>
+				<div style={facilityStyle}>
+					<Facilities />
+				</div>
+				<div style={shopStyle}>
+					<Cookie />
+				</div>
+			</div>
 		</>
-	);
-};
-
-const IncreaseCount = () => {
-	const increaseCount = useCountStore((state) => state.increaseCount);
-	console.log('render');
-	return (
-		<>
-			<button onClick={() => increaseCount()}>Increase</button>
-		</>
-	);
-};
-
-const DecreaseCount = () => {
-	const state = useCountStore();
-	console.log('state');
-	return (
-		<>
-			<button onClick={() => state.decreaseCount()}>Decrease</button>
-		</>
-	);
-};
-
-const ResetButton = () => {
-	const { resetCount } = useCountStore();
-	return <button onClick={() => resetCount()}>Reset</button>;
-};
-
-function App() {
-	return (
-		<div className="">
-			<main className="">
-				<Count />
-				<IncreaseCount />
-				<DecreaseCount />
-				<ResetButton />
-			</main>
-		</div>
 	);
 }
 
 export default App;
-
-// const { count, increaseCount } = useStore(
-// 	(state) => ({
-// 		count: state.count,
-// 		increaseCount: state.increaseCount
-// 	}),
-// 	shallow
-// );

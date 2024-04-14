@@ -1,7 +1,9 @@
 import { create } from 'zustand';
-import { Count } from '../types/count';
+import { CountState, CountAction } from '../types';
 
-export const useCountStore = create<Count>((set) => ({
+export type CountStore = CountState & CountAction;
+
+export const useCountStore = create<CountStore>((set) => ({
 	count: 0,
 	increaseCount: () =>
 		set((state) => {
