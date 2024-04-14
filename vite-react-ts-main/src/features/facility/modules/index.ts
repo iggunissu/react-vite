@@ -1,1 +1,1 @@
-export { default as Facilities } from './facilities';
+export { default as Facilities } from './Facilities';

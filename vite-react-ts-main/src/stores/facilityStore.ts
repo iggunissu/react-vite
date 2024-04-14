@@ -88,9 +88,9 @@ export const useFacilityStore = create<FacilityStore>((set) => ({
 	buyMine: () =>
 		set((state) => {
 			return {
-				cursols: {
-					...state.cursols,
-					number: state.cursols.number + 1
+				mines: {
+					...state.mines,
+					number: state.mines.number + 1
 				}
 			};
 		})

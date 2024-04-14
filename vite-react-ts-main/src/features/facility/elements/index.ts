@@ -1,4 +1,4 @@
-export { default as SaveButton } from './saveButton';
+export { default as SaveButton } from './SaveButton';
 export { default as Cursols } from '../../cookie/elements/Cursols';
 export { default as Factories } from './Factories';
 export { default as Fields } from './Fields';

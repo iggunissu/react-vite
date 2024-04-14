@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cookie, Facilities } from './features';
+import { Cookie, Facilities, Shops } from './features';
 
 export function App() {
 	const cookieStyle: React.CSSProperties = {
@@ -33,7 +33,7 @@ export function App() {
 					<Facilities />
 				</div>
 				<div style={shopStyle}>
-					<Cookie />
+					<Shops />
 				</div>
 			</div>
 		</>
