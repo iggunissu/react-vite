@@ -1,41 +1,27 @@
-import React from 'react';
-import { Cookie, Facilities, Shops } from './features';
+import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
+import { Cookie, FacilitiesLayout, Shops } from './pages';
+import { useFacilityStore } from './stores';
+import { useEffect } from 'react';
 
 export function App() {
-	const cookieStyle: React.CSSProperties = {
-		width: '20%',
-		height: '100%',
-		position: 'relative'
-	};
-	const facilityStyle: React.CSSProperties = {
-		width: '50%',
-		height: '100%',
-		position: 'relative'
-	};
-	const shopStyle: React.CSSProperties = {
-		width: '30%',
-		height: '100%',
-		position: 'relative'
-	};
-	const layout: React.CSSProperties = {
-		display: 'flex',
-		width: 1900,
-		height: 900
-	};
+	const getData = useFacilityStore((state) => state.getFacilities);
+	useEffect(() => {
+		getData();
+	}, []);
 
 	return (
 		<>
-			<div style={layout}>
-				<div style={cookieStyle}>
+			<Grid2 container>
+				<Grid2 xs={3}>
 					<Cookie />
-				</div>
-				<div style={facilityStyle}>
-					<Facilities />
-				</div>
-				<div style={shopStyle}>
+				</Grid2>
+				<Grid2 xs={6}>
+					<FacilitiesLayout />
+				</Grid2>
+				<Grid2 xs={3}>
 					<Shops />
-				</div>
-			</div>
+				</Grid2>
+			</Grid2>
 		</>
 	);
 }
